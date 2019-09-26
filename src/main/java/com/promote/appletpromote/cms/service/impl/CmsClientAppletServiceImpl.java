@@ -1,15 +1,20 @@
 package com.promote.appletpromote.cms.service.impl;
 
 import com.promote.appletpromote.cms.service.CmsClientAppletService;
-import com.promote.appletpromote.entity.tbClientApplet;
+import com.promote.appletpromote.entity.TbClientApplet;
+import com.promote.appletpromote.mapper.TbClientAppletMapper;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
+@Service
 public class CmsClientAppletServiceImpl implements CmsClientAppletService {
 
+
     @Resource
-    private tbClientApplet tbClientApplet;
+    private TbClientAppletMapper tbClientAppletMapper;
+
 
     @Override
     public int deleteByPrimaryKey(Integer id) {
@@ -17,32 +22,32 @@ public class CmsClientAppletServiceImpl implements CmsClientAppletService {
     }
 
     @Override
-    public int insert(tbClientApplet record) {
+    public int insert(TbClientApplet record) {
         return 0;
     }
 
     @Override
-    public int insertSelective(tbClientApplet record) {
+    public int insertSelective(TbClientApplet record) {
         return 0;
     }
 
     @Override
-    public tbClientApplet selectByPrimaryKey(Integer id) {
+    public TbClientApplet selectByPrimaryKey(Integer id) {
         return null;
     }
 
     @Override
-    public List<tbClientApplet> selectByParam(tbClientApplet record) {
+    public List<TbClientApplet> selectByParam(TbClientApplet record) {
         return null;
     }
 
     @Override
-    public int updateByPrimaryKeySelective(tbClientApplet record) {
+    public int updateByPrimaryKeySelective(TbClientApplet record) {
         return 0;
     }
 
     @Override
-    public int updateByPrimaryKey(tbClientApplet record) {
+    public int updateByPrimaryKey(TbClientApplet record) {
         return 0;
     }
 }

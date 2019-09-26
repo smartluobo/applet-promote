@@ -42,7 +42,7 @@
 
 		<!-- 指定数据库表，要生成哪些表，就写哪些表，要和数据库中对应，不能写错！ -->
 		<table tableName="tb_client_applet"
-			   domainObjectName="tbClientApplet"
+			   domainObjectName="TbClientApplet"
 			   enableCountByExample="false"
 			   enableUpdateByExample="false"
 			   enableDeleteByExample="false"

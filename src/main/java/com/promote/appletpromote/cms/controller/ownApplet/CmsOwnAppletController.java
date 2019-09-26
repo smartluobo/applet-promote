@@ -2,7 +2,6 @@ package com.promote.appletpromote.cms.controller.ownApplet;
 
 import com.promote.appletpromote.cms.service.CmsOwnAppletService;
 import com.promote.appletpromote.entity.TbOwnApplet;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;

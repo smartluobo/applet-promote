@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.promote.appletpromote.mapper.tbClientAppletMapper">
-  <resultMap id="BaseResultMap" type="com.promote.appletpromote.entity.tbClientApplet">
+<mapper namespace="com.promote.appletpromote.mapper.TbClientAppletMapper">
+  <resultMap id="BaseResultMap" type="com.promote.appletpromote.entity.TbClientApplet">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="link_ghid" jdbcType="VARCHAR" property="linkGhid" />
     <result column="applet_name" jdbcType="VARCHAR" property="appletName" />
@@ -9,7 +9,7 @@
     <result column="bottom_name" jdbcType="VARCHAR" property="bottomName" />
     <result column="applet_appid" jdbcType="VARCHAR" property="appletAppid" />
     <result column="link_address" jdbcType="VARCHAR" property="linkAddress" />
-    <result column="isDisplay" jdbcType="TINYINT" property="isdisplay" />
+    <result column="is_display" jdbcType="TINYINT" property="isDisplay" />
     <result column="logo_img" jdbcType="VARCHAR" property="logoImg" />
     <result column="banner_img" jdbcType="VARCHAR" property="bannerImg" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -17,11 +17,12 @@
     <result column="create_user" jdbcType="VARCHAR" property="createUser" />
     <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
     <result column="is_del" jdbcType="INTEGER" property="isDel" />
+    <result column="price" jdbcType="INTEGER" property="price" />
   </resultMap>
   <sql id="Base_Column_List">
     id, link_ghid, applet_name, description, bottom_name, applet_appid, link_address, 
-    isDisplay, logo_img, banner_img, create_time, update_time, create_user, update_user, 
-    is_del
+    is_display, logo_img, banner_img, create_time, update_time, create_user, update_user, 
+    is_del, price
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -36,7 +37,7 @@
     from tb_client_applet
     <where>
       <if test="linkGhid != null">
-         link_ghid = #{linkGhid,jdbcType=VARCHAR},
+        link_ghid = #{linkGhid,jdbcType=VARCHAR},
       </if>
       <if test="appletName != null">
         AND applet_name = #{appletName,jdbcType=VARCHAR},
@@ -53,8 +54,8 @@
       <if test="linkAddress != null">
         AND link_address = #{linkAddress,jdbcType=VARCHAR},
       </if>
-      <if test="isdisplay != null">
-        AND isDisplay = #{isdisplay,jdbcType=TINYINT},
+      <if test="isDisplay != null">
+        AND is_display = #{isDisplay,jdbcType=TINYINT},
       </if>
       <if test="logoImg != null">
         AND logo_img = #{logoImg,jdbcType=VARCHAR},
@@ -77,30 +78,30 @@
       <if test="isDel != null">
         AND is_del = #{isDel,jdbcType=INTEGER},
       </if>
+      <if test="price != null">
+        AND price = #{price,jdbcType=INTEGER},
+      </if>
     </where>
-      </select>
-
-
-
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from tb_client_applet
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.promote.appletpromote.entity.tbClientApplet">
+  <insert id="insert" parameterType="com.promote.appletpromote.entity.TbClientApplet">
     insert into tb_client_applet (id, link_ghid, applet_name, 
       description, bottom_name, applet_appid, 
-      link_address, isDisplay, logo_img, 
+      link_address, is_display, logo_img, 
       banner_img, create_time, update_time, 
-      create_user, update_user, is_del
-      )
+      create_user, update_user, is_del, 
+      price)
     values (#{id,jdbcType=INTEGER}, #{linkGhid,jdbcType=VARCHAR}, #{appletName,jdbcType=VARCHAR}, 
       #{description,jdbcType=VARCHAR}, #{bottomName,jdbcType=VARCHAR}, #{appletAppid,jdbcType=VARCHAR}, 
-      #{linkAddress,jdbcType=VARCHAR}, #{isdisplay,jdbcType=TINYINT}, #{logoImg,jdbcType=VARCHAR}, 
+      #{linkAddress,jdbcType=VARCHAR}, #{isDisplay,jdbcType=TINYINT}, #{logoImg,jdbcType=VARCHAR}, 
       #{bannerImg,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, #{isDel,jdbcType=INTEGER}
-      )
+      #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, #{isDel,jdbcType=INTEGER}, 
+      #{price,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.promote.appletpromote.entity.tbClientApplet">
+  <insert id="insertSelective" parameterType="com.promote.appletpromote.entity.TbClientApplet">
     insert into tb_client_applet
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -124,8 +125,8 @@
       <if test="linkAddress != null">
         link_address,
       </if>
-      <if test="isdisplay != null">
-        isDisplay,
+      <if test="isDisplay != null">
+        is_display,
       </if>
       <if test="logoImg != null">
         logo_img,
@@ -147,6 +148,9 @@
       </if>
       <if test="isDel != null">
         is_del,
+      </if>
+      <if test="price != null">
+        price,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -171,8 +175,8 @@
       <if test="linkAddress != null">
         #{linkAddress,jdbcType=VARCHAR},
       </if>
-      <if test="isdisplay != null">
-        #{isdisplay,jdbcType=TINYINT},
+      <if test="isDisplay != null">
+        #{isDisplay,jdbcType=TINYINT},
       </if>
       <if test="logoImg != null">
         #{logoImg,jdbcType=VARCHAR},
@@ -195,9 +199,12 @@
       <if test="isDel != null">
         #{isDel,jdbcType=INTEGER},
       </if>
+      <if test="price != null">
+        #{price,jdbcType=INTEGER},
+      </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.promote.appletpromote.entity.tbClientApplet">
+  <update id="updateByPrimaryKeySelective" parameterType="com.promote.appletpromote.entity.TbClientApplet">
     update tb_client_applet
     <set>
       <if test="linkGhid != null">
@@ -218,8 +225,8 @@
       <if test="linkAddress != null">
         link_address = #{linkAddress,jdbcType=VARCHAR},
       </if>
-      <if test="isdisplay != null">
-        isDisplay = #{isdisplay,jdbcType=TINYINT},
+      <if test="isDisplay != null">
+        is_display = #{isDisplay,jdbcType=TINYINT},
       </if>
       <if test="logoImg != null">
         logo_img = #{logoImg,jdbcType=VARCHAR},
@@ -242,10 +249,13 @@
       <if test="isDel != null">
         is_del = #{isDel,jdbcType=INTEGER},
       </if>
+      <if test="price != null">
+        price = #{price,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.promote.appletpromote.entity.tbClientApplet">
+  <update id="updateByPrimaryKey" parameterType="com.promote.appletpromote.entity.TbClientApplet">
     update tb_client_applet
     set link_ghid = #{linkGhid,jdbcType=VARCHAR},
       applet_name = #{appletName,jdbcType=VARCHAR},
@@ -253,14 +263,15 @@
       bottom_name = #{bottomName,jdbcType=VARCHAR},
       applet_appid = #{appletAppid,jdbcType=VARCHAR},
       link_address = #{linkAddress,jdbcType=VARCHAR},
-      isDisplay = #{isdisplay,jdbcType=TINYINT},
+      is_display = #{isDisplay,jdbcType=TINYINT},
       logo_img = #{logoImg,jdbcType=VARCHAR},
       banner_img = #{bannerImg,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       create_user = #{createUser,jdbcType=VARCHAR},
       update_user = #{updateUser,jdbcType=VARCHAR},
-      is_del = #{isDel,jdbcType=INTEGER}
+      is_del = #{isDel,jdbcType=INTEGER},
+      price = #{price,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -2,7 +2,7 @@ package com.promote.appletpromote.entity;
 
 import java.util.Date;
 
-public class tbClientApplet {
+public class TbClientApplet {
     private Integer id;
 
     private String linkGhid;
@@ -17,7 +17,7 @@ public class tbClientApplet {
 
     private String linkAddress;
 
-    private Byte isdisplay;
+    private Byte isDisplay;
 
     private String logoImg;
 
@@ -32,6 +32,8 @@ public class tbClientApplet {
     private String updateUser;
 
     private Integer isDel;
+
+    private Integer price;
 
     public Integer getId() {
         return id;
@@ -89,12 +91,12 @@ public class tbClientApplet {
         this.linkAddress = linkAddress == null ? null : linkAddress.trim();
     }
 
-    public Byte getIsdisplay() {
-        return isdisplay;
+    public Byte getIsDisplay() {
+        return isDisplay;
     }
 
-    public void setIsdisplay(Byte isdisplay) {
-        this.isdisplay = isdisplay;
+    public void setIsDisplay(Byte isDisplay) {
+        this.isDisplay = isDisplay;
     }
 
     public String getLogoImg() {
@@ -151,5 +153,13 @@ public class tbClientApplet {
 
     public void setIsDel(Integer isDel) {
         this.isDel = isDel;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 }

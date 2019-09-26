@@ -1,12 +1,10 @@
-package com.promote.appletpromote.cms.service;
-
+package com.promote.appletpromote.mapper;
 
 import com.promote.appletpromote.entity.TbClientApplet;
 
 import java.util.List;
 
-public interface CmsClientAppletService {
-
+public interface TbClientAppletMapper {
     int deleteByPrimaryKey(Integer id);
 
     int insert(TbClientApplet record);
