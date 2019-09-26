@@ -1,7 +1,9 @@
 package com.promote.appletpromote.mapper;
 
 import com.promote.appletpromote.entity.TbCarousel;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface TbCarouselMapper {
     int deleteByPrimaryKey(Integer id);
 

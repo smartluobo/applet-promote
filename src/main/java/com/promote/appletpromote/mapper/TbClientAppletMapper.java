@@ -1,9 +1,10 @@
 package com.promote.appletpromote.mapper;
 
 import com.promote.appletpromote.entity.TbClientApplet;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-
+@Mapper
 public interface TbClientAppletMapper {
     int deleteByPrimaryKey(Integer id);
 

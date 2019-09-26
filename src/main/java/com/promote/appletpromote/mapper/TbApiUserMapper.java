@@ -1,7 +1,9 @@
 package com.promote.appletpromote.mapper;
 
 import com.promote.appletpromote.entity.TbApiUser;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface TbApiUserMapper {
     int deleteByPrimaryKey(Integer id);
 
