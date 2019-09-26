@@ -14,7 +14,7 @@ public interface TbTypesMapper {
 
     TbTypes selectByPrimaryKey(Integer id);
 
-    List<TbTypes> selectByParam(Integer id);
+    List<TbTypes> selectByParam(TbTypes record);
 
     int updateByPrimaryKeySelective(TbTypes record);
 

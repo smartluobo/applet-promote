@@ -18,36 +18,36 @@ public class CmsClientAppletServiceImpl implements CmsClientAppletService {
 
     @Override
     public int deleteByPrimaryKey(Integer id) {
-        return 0;
+        return tbClientAppletMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public int insert(TbClientApplet record) {
-        return 0;
+        return tbClientAppletMapper.insert(record);
     }
 
     @Override
     public int insertSelective(TbClientApplet record) {
-        return 0;
+        return tbClientAppletMapper.insertSelective(record);
     }
 
     @Override
     public TbClientApplet selectByPrimaryKey(Integer id) {
-        return null;
+        return tbClientAppletMapper.selectByPrimaryKey(id);
     }
 
     @Override
     public List<TbClientApplet> selectByParam(TbClientApplet record) {
-        return null;
+        return tbClientAppletMapper.selectByParam(record);
     }
 
     @Override
     public int updateByPrimaryKeySelective(TbClientApplet record) {
-        return 0;
+        return tbClientAppletMapper.updateByPrimaryKeySelective(record);
     }
 
     @Override
     public int updateByPrimaryKey(TbClientApplet record) {
-        return 0;
+        return tbClientAppletMapper.updateByPrimaryKey(record);
     }
 }

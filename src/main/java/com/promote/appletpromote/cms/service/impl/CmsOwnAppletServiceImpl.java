@@ -16,12 +16,12 @@ public class CmsOwnAppletServiceImpl implements CmsOwnAppletService {
 
     @Override
     public int deleteByPrimaryKey(Integer id) {
-        return 0;
+        return tbOwnAppletMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public int insert(TbOwnApplet record) {
-        return 0;
+        return tbOwnAppletMapper.insert(record);
     }
 
     @Override

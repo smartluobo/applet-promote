@@ -1,11 +1,10 @@
-package com.promote.appletpromote.mapper;
+package com.promote.appletpromote.cms.service;
 
 import com.promote.appletpromote.entity.TbCarousel;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-@Mapper
-public interface TbCarouselMapper {
+
+public interface CmsCarouselService {
     int deleteByPrimaryKey(Integer id);
 
     int insert(TbCarousel record);
@@ -20,4 +19,5 @@ public interface TbCarouselMapper {
     int updateByPrimaryKeySelective(TbCarousel record);
 
     int updateByPrimaryKey(TbCarousel record);
+
 }

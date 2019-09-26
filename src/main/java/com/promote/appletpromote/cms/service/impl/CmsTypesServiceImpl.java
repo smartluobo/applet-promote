@@ -17,36 +17,36 @@ public class CmsTypesServiceImpl implements CmsTypesService {
 
     @Override
     public int deleteByPrimaryKey(Integer id) {
-        return 0;
+        return tbTypesMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public int insert(TbTypes record) {
-        return 0;
+        return tbTypesMapper.insert(record);
     }
 
     @Override
     public int insertSelective(TbTypes record) {
-        return 0;
+        return tbTypesMapper.insertSelective(record);
     }
 
     @Override
     public TbTypes selectByPrimaryKey(Integer id) {
-        return null;
+        return tbTypesMapper.selectByPrimaryKey(id);
     }
 
     @Override
     public List<TbTypes> selectByParam(TbTypes record) {
-        return null;
+        return tbTypesMapper.selectByParam(record);
     }
 
     @Override
     public int updateByPrimaryKeySelective(TbTypes record) {
-        return 0;
+        return tbTypesMapper.updateByPrimaryKeySelective(record);
     }
 
     @Override
     public int updateByPrimaryKey(TbTypes record) {
-        return 0;
+        return tbTypesMapper.updateByPrimaryKey(record);
     }
 }

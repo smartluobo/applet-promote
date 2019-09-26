@@ -21,6 +21,38 @@
     from tb_carousel
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+  <select id="selectByParam" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_carousel
+    <where>
+      <if test="clientAppletId != null">
+        client_applet_id = #{clientAppletId,jdbcType=INTEGER},
+      </if>
+      <if test="ownAppletId != null">
+        AND own_applet_id = #{ownAppletId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        AND create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        AND update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        AND is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+    </where>
+  </select>
+
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from tb_carousel
     where id = #{id,jdbcType=INTEGER}
