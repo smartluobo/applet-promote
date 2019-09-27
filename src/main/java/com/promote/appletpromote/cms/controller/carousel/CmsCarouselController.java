@@ -2,6 +2,7 @@ package com.promote.appletpromote.cms.controller.carousel;
 
 import com.promote.appletpromote.cms.service.CmsCarouselService;
 import com.promote.appletpromote.entity.TbCarousel;
+import com.promote.appletpromote.response.ResultInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -15,24 +16,25 @@ import java.util.Map;
 @RequestMapping("/cmsCarouselController")
 public class CmsCarouselController {
 
-
-
     private static final Logger LOGGER = LoggerFactory.getLogger(CmsCarouselController.class);
 
     @Resource
     private CmsCarouselService cmsCarouselService;
 
-
     @PostMapping("/add")
-    private Map<String,String> add(@RequestBody TbCarousel tbCarousel){
-
-        LOGGER.info("CmsOwnAppletController  add 获取的插入对象为{}",tbCarousel);
-
-        int add = cmsCarouselService.insertSelective(tbCarousel);
-        if(add ==1){
-
+    private Object add(@RequestBody TbCarousel tbCarousel){
+        try {
+            LOGGER.info("CmsOwnAppletController  add 获取的插入对象为{}",tbCarousel);
+            int add = cmsCarouselService.insertSelective(tbCarousel);
+            if(add ==1){
+                return ResultInfo.newSuccessResultInfo();
+            }
+            return ResultInfo.newFailResultInfo();
+        }catch (Exception e){
+            LOGGER.error("cmsCarouselController add happen exception",e);
+            return ResultInfo.newExceptionResultInfo();
         }
-        return null;
+
     }
 
 
