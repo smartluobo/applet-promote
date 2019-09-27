@@ -1,6 +1,7 @@
 package com.promote.appletpromote.cms.service.impl;
 
 import com.promote.appletpromote.cms.service.CmsTypesService;
+import com.promote.appletpromote.entity.ApiTypes;
 import com.promote.appletpromote.entity.TbTypes;
 import com.promote.appletpromote.mapper.TbTypesMapper;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,11 @@ public class CmsTypesServiceImpl implements CmsTypesService {
     @Override
     public List<TbTypes> selectByParam(TbTypes record) {
         return tbTypesMapper.selectByParam(record);
+    }
+
+    @Override
+    public List<ApiTypes> getTpyes(TbTypes record) {
+        return tbTypesMapper.getTpyes(record);
     }
 
     @Override

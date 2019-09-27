@@ -1,5 +1,6 @@
 package com.promote.appletpromote.mapper;
 
+import com.promote.appletpromote.entity.ApiTypes;
 import com.promote.appletpromote.entity.TbTypes;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -15,6 +16,8 @@ public interface TbTypesMapper {
     TbTypes selectByPrimaryKey(Integer id);
 
     List<TbTypes> selectByParam(TbTypes record);
+
+    List<ApiTypes> getTpyes(TbTypes record);
 
     int updateByPrimaryKeySelective(TbTypes record);
 

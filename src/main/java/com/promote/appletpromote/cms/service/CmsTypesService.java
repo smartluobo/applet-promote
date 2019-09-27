@@ -1,5 +1,6 @@
 package com.promote.appletpromote.cms.service;
 
+import com.promote.appletpromote.entity.ApiTypes;
 import com.promote.appletpromote.entity.TbTypes;
 
 import java.util.List;
@@ -15,6 +16,8 @@ public interface CmsTypesService {
     TbTypes selectByPrimaryKey(Integer id);
 
     List<TbTypes> selectByParam(TbTypes record);
+
+    List<ApiTypes> getTpyes(TbTypes record);
 
     int updateByPrimaryKeySelective(TbTypes record);
 

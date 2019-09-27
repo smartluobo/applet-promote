@@ -37,49 +37,49 @@
     from tb_client_applet
     <where>
       <if test="linkGhid != null">
-        link_ghid = #{linkGhid,jdbcType=VARCHAR},
+        link_ghid = #{linkGhid,jdbcType=VARCHAR}
       </if>
       <if test="appletName != null">
-        AND applet_name = #{appletName,jdbcType=VARCHAR},
+        AND applet_name = #{appletName,jdbcType=VARCHAR}
       </if>
       <if test="description != null">
-        AND description = #{description,jdbcType=VARCHAR},
+        AND description = #{description,jdbcType=VARCHAR}
       </if>
       <if test="bottomName != null">
-        AND  bottom_name = #{bottomName,jdbcType=VARCHAR},
+        AND  bottom_name = #{bottomName,jdbcType=VARCHAR}
       </if>
       <if test="appletAppid != null">
-        AND applet_appid = #{appletAppid,jdbcType=VARCHAR},
+        AND applet_appid = #{appletAppid,jdbcType=VARCHAR}
       </if>
       <if test="linkAddress != null">
-        AND link_address = #{linkAddress,jdbcType=VARCHAR},
+        AND link_address = #{linkAddress,jdbcType=VARCHAR}
       </if>
       <if test="isDisplay != null">
-        AND is_display = #{isDisplay,jdbcType=TINYINT},
+        AND is_display = #{isDisplay,jdbcType=TINYINT}
       </if>
       <if test="logoImg != null">
-        AND logo_img = #{logoImg,jdbcType=VARCHAR},
+        AND logo_img = #{logoImg,jdbcType=VARCHAR}
       </if>
       <if test="bannerImg != null">
-        AND banner_img = #{bannerImg,jdbcType=VARCHAR},
+        AND banner_img = #{bannerImg,jdbcType=VARCHAR}
       </if>
       <if test="createTime != null">
-        AND create_time = #{createTime,jdbcType=TIMESTAMP},
+        AND create_time = #{createTime,jdbcType=TIMESTAMP}
       </if>
       <if test="updateTime != null">
-        AND update_time = #{updateTime,jdbcType=TIMESTAMP},
+        AND update_time = #{updateTime,jdbcType=TIMESTAMP}
       </if>
       <if test="createUser != null">
-        AND create_user = #{createUser,jdbcType=VARCHAR},
+        AND create_user = #{createUser,jdbcType=VARCHAR}
       </if>
       <if test="updateUser != null">
-        AND update_user = #{updateUser,jdbcType=VARCHAR},
+        AND update_user = #{updateUser,jdbcType=VARCHAR}
       </if>
       <if test="isDel != null">
-        AND is_del = #{isDel,jdbcType=INTEGER},
+        AND is_del = #{isDel,jdbcType=INTEGER}
       </if>
       <if test="price != null">
-        AND price = #{price,jdbcType=INTEGER},
+        AND price = #{price,jdbcType=INTEGER}
       </if>
     </where>
   </select>
