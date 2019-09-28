@@ -1,6 +1,7 @@
 package com.promote.appletpromote.cms.service.impl;
 
 import com.promote.appletpromote.cms.service.CmsCarouselService;
+import com.promote.appletpromote.entity.ApiBannerImg;
 import com.promote.appletpromote.entity.TbCarousel;
 import com.promote.appletpromote.mapper.TbCarouselMapper;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,11 @@ public class CmsCarouselServiceImpl implements CmsCarouselService {
     @Override
     public int updateByPrimaryKeySelective(TbCarousel record) {
         return tbCarouselMapper.updateByPrimaryKeySelective(record);
+    }
+
+    @Override
+    public List<ApiBannerImg> getBannerImg() {
+        return tbCarouselMapper.getBannerImg();
     }
 
     @Override

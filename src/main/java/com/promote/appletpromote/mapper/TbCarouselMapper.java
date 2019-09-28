@@ -1,5 +1,6 @@
 package com.promote.appletpromote.mapper;
 
+import com.promote.appletpromote.entity.ApiBannerImg;
 import com.promote.appletpromote.entity.TbCarousel;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -16,6 +17,8 @@ public interface TbCarouselMapper {
 
     List<TbCarousel> selectByParam(TbCarousel record);
 
+
+    List<ApiBannerImg> getBannerImg();
 
     int updateByPrimaryKeySelective(TbCarousel record);
 

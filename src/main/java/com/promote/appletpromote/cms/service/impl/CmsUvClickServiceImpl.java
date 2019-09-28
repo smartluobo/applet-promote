@@ -6,6 +6,7 @@ import com.promote.appletpromote.mapper.TbUvClickMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class CmsUvClickServiceImpl implements CmsUvClickService {
@@ -32,6 +33,11 @@ public class CmsUvClickServiceImpl implements CmsUvClickService {
     @Override
     public TbUvClick selectByPrimaryKey(Integer id) {
         return tbUvClickMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public List<TbUvClick> selectByPrimaryParm(TbUvClick record) {
+        return tbUvClickMapper.selectByPrimaryParm(record);
     }
 
     @Override

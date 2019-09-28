@@ -19,6 +19,33 @@
     from tb_uv_click
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+  <select id="selectByPrimaryParm" parameterType="com.promote.appletpromote.entity.TbUvClick" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_uv_click
+    <where>
+      <if test="openid != null">
+        openid = #{openid,jdbcType=VARCHAR}
+      </if>
+      <if test="ghid != null">
+        AND ghid = #{ghid,jdbcType=VARCHAR}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="ownAppletId != null">
+        AND own_applet_id = #{ownAppletId,jdbcType=VARCHAR}
+      </if>
+      <if test="appid != null">
+        AND appid = #{appid,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from tb_uv_click
     where id = #{id,jdbcType=INTEGER}

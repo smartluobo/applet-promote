@@ -1,5 +1,6 @@
 package com.promote.appletpromote.cms.service;
 
+import com.promote.appletpromote.entity.ApiBannerImg;
 import com.promote.appletpromote.entity.TbCarousel;
 
 import java.util.List;
@@ -17,6 +18,9 @@ public interface CmsCarouselService {
 
 
     int updateByPrimaryKeySelective(TbCarousel record);
+
+    List<ApiBannerImg> getBannerImg();
+
 
     int updateByPrimaryKey(TbCarousel record);
 

@@ -1,6 +1,7 @@
 package com.promote.appletpromote.cms.service.impl;
 
 import com.promote.appletpromote.cms.service.CmsClientAppletService;
+import com.promote.appletpromote.entity.ApiGame;
 import com.promote.appletpromote.entity.TbClientApplet;
 import com.promote.appletpromote.mapper.TbClientAppletMapper;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,11 @@ public class CmsClientAppletServiceImpl implements CmsClientAppletService {
     @Override
     public TbClientApplet selectByPrimaryKey(Integer id) {
         return tbClientAppletMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public ApiGame selectById(Integer id) {
+        return tbClientAppletMapper.selectById(id);
     }
 
     @Override

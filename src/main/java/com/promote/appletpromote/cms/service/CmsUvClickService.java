@@ -2,6 +2,8 @@ package com.promote.appletpromote.cms.service;
 
 import com.promote.appletpromote.entity.TbUvClick;
 
+import java.util.List;
+
 public interface CmsUvClickService {
 
     int deleteByPrimaryKey(Integer id);
@@ -11,6 +13,8 @@ public interface CmsUvClickService {
     int insertSelective(TbUvClick record);
 
     TbUvClick selectByPrimaryKey(Integer id);
+
+    List<TbUvClick> selectByPrimaryParm(TbUvClick record);
 
     int updateByPrimaryKeySelective(TbUvClick record);
 

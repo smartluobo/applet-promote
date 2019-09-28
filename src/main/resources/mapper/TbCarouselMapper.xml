@@ -11,6 +11,11 @@
     <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
     <result column="is_del" jdbcType="INTEGER" property="isDel" />
   </resultMap>
+
+
+  <resultMap id="BannerResultMap" type="com.promote.appletpromote.entity.ApiBannerImg">
+    <result column="banner_img" jdbcType="VARCHAR" property="bannerImg" />
+  </resultMap>
   <sql id="Base_Column_List">
     id, client_applet_id, own_applet_id, create_time, update_time, create_user, update_user, 
     is_del
@@ -20,6 +25,16 @@
     <include refid="Base_Column_List" />
     from tb_carousel
     where id = #{id,jdbcType=INTEGER}
+  </select>
+
+
+  <select id="getBannerImg" resultMap="BannerResultMap">
+        SELECT
+      tb_client_applet.`banner_img`
+      FROM
+      `tb_carousel`
+      LEFT JOIN `tb_client_applet`
+      ON tb_client_applet.`id` = tb_carousel.`client_applet_id`
   </select>
 
   <select id="selectByParam" parameterType="java.lang.Integer" resultMap="BaseResultMap">

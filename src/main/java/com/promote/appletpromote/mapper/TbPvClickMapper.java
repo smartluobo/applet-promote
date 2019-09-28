@@ -1,7 +1,9 @@
 package com.promote.appletpromote.mapper;
 
 import com.promote.appletpromote.entity.TbPvClick;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface TbPvClickMapper {
     int deleteByPrimaryKey(Integer id);
 

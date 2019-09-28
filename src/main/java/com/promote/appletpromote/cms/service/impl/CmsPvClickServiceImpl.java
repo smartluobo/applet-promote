@@ -1,6 +1,8 @@
 package com.promote.appletpromote.cms.service.impl;
 
 import com.promote.appletpromote.cms.service.CmsPvClickService;
+import com.promote.appletpromote.entity.TbPvClick;
+import com.promote.appletpromote.mapper.TbPvClickMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
