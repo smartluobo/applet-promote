@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.promote.appletpromote.mapper.TbPvClickMapper">
+  <resultMap id="BaseResultMap" type="com.promote.appletpromote.entity.TbPvClick">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="client_applet_id" jdbcType="VARCHAR" property="clientAppletId" />
+    <result column="click_count" jdbcType="INTEGER" property="clickCount" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="own_applet_id" jdbcType="VARCHAR" property="ownAppletId" />
+    <result column="appid" jdbcType="VARCHAR" property="appid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, client_applet_id, click_count, create_time, update_time, own_applet_id, appid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_pv_click
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_pv_click
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.promote.appletpromote.entity.TbPvClick">
+    insert into tb_pv_click (id, client_applet_id, click_count, 
+      create_time, update_time, own_applet_id, 
+      appid)
+    values (#{id,jdbcType=INTEGER}, #{clientAppletId,jdbcType=VARCHAR}, #{clickCount,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{ownAppletId,jdbcType=VARCHAR}, 
+      #{appid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.promote.appletpromote.entity.TbPvClick">
+    insert into tb_pv_click
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="clientAppletId != null">
+        client_applet_id,
+      </if>
+      <if test="clickCount != null">
+        click_count,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="ownAppletId != null">
+        own_applet_id,
+      </if>
+      <if test="appid != null">
+        appid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="clientAppletId != null">
+        #{clientAppletId,jdbcType=VARCHAR},
+      </if>
+      <if test="clickCount != null">
+        #{clickCount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ownAppletId != null">
+        #{ownAppletId,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        #{appid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.promote.appletpromote.entity.TbPvClick">
+    update tb_pv_click
+    <set>
+      <if test="clientAppletId != null">
+        client_applet_id = #{clientAppletId,jdbcType=VARCHAR},
+      </if>
+      <if test="clickCount != null">
+        click_count = #{clickCount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ownAppletId != null">
+        own_applet_id = #{ownAppletId,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        appid = #{appid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.promote.appletpromote.entity.TbPvClick">
+    update tb_pv_click
+    set client_applet_id = #{clientAppletId,jdbcType=VARCHAR},
+      click_count = #{clickCount,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      own_applet_id = #{ownAppletId,jdbcType=VARCHAR},
+      appid = #{appid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
