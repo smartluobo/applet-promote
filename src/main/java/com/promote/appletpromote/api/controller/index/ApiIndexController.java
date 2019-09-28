@@ -1,7 +1,6 @@
 package com.promote.appletpromote.api.controller.index;
 
 
-import com.promote.appletpromote.cms.controller.user.CmsUserController;
 import com.promote.appletpromote.cms.service.*;
 import com.promote.appletpromote.entity.*;
 import com.promote.appletpromote.response.ResultInfo;
