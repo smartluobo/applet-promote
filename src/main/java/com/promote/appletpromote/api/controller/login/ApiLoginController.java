@@ -1,6 +1,8 @@
 package com.promote.appletpromote.api.controller.login;
 
 import com.promote.appletpromote.api.service.login.ApiLoginService;
+import com.promote.appletpromote.cms.service.CmsApiUserService;
+import com.promote.appletpromote.entity.TbApiUser;
 import com.promote.appletpromote.response.ResultInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -21,24 +23,33 @@ public class ApiLoginController {
     @Resource
     private ApiLoginService apiLoginService;
 
+    @Resource
+    private CmsApiUserService cmsApiUserService;
+
+
     @RequestMapping("/login")
     public ResultInfo login(@RequestBody Map<String,String> codeParam){
         LOGGER.info("api user login call.....");
         String code = null;
+        String appid = null;
         try {
             if (CollectionUtils.isEmpty(codeParam)){
                 return ResultInfo.newEmptyResultInfo();
             }
             code = codeParam.get("code");
-            if (StringUtils.isEmpty(code)){
+            appid = codeParam.get("appid");
+            if (StringUtils.isEmpty(code)&&StringUtils.isEmpty(appid)){
                 return ResultInfo.newEmptyResultInfo();
             }
             ResultInfo resultInfo = ResultInfo.newSuccessResultInfo();
-            String oppenId = apiLoginService.login(code);
+            String oppenId = apiLoginService.login(code,appid);
             if (StringUtils.isNotEmpty(oppenId)){
                 // TODO: 2019/9/28 该openId 为微信用户openId 使用该openId组装一个user对象插入表，返回openId给前端
                // apiUserService.saveApiUser(oppenId);
-
+                TbApiUser tbApiUser = new TbApiUser();
+                tbApiUser.setOppenId(oppenId);
+                LOGGER.error("login add the openid of users {}",tbApiUser.toString());
+                cmsApiUserService.insert(tbApiUser);
             }
             resultInfo.setData(oppenId);
             return resultInfo;

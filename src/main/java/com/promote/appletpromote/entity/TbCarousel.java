@@ -19,6 +19,16 @@ public class TbCarousel {
 
     private Integer isDel;
 
+    private String appid;
+
+    public String getAppid() {
+        return appid;
+    }
+
+    public void setAppid(String appid) {
+        this.appid = appid;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -81,5 +91,20 @@ public class TbCarousel {
 
     public void setIsDel(Integer isDel) {
         this.isDel = isDel;
+    }
+
+    @Override
+    public String toString() {
+        return "TbCarousel{" +
+                "id=" + id +
+                ", clientAppletId=" + clientAppletId +
+                ", ownAppletId=" + ownAppletId +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", createUser='" + createUser + '\'' +
+                ", updateUser='" + updateUser + '\'' +
+                ", isDel=" + isDel +
+                ", appid='" + appid + '\'' +
+                '}';
     }
 }

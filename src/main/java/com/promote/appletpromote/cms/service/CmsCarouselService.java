@@ -19,7 +19,7 @@ public interface CmsCarouselService {
 
     int updateByPrimaryKeySelective(TbCarousel record);
 
-    List<ApiBannerImg> getBannerImg();
+    List<ApiBannerImg> getBannerImg(String appid);
 
 
     int updateByPrimaryKey(TbCarousel record);

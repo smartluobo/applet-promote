@@ -50,13 +50,15 @@ public class ApiIndexController {
         List<ApiTypes> typeList = cmsTypesService.getTpyes(tbTypes);
         for (ApiTypes apiType : typeList) {
             List<ApiGames> apiGameList =apiCommonService.getAppletByTypeId(apiType.getId());
+            LOGGER.info("**********获取到的apiGameList={}",apiGameList);
+
             apiType.setApiGameList(apiGameList);
         }
         return typeList;
     }
 
 
-    //获取小程序的游戏列表
+    //获取盒子详情
     @PostMapping("/getGameDetai/{id}")
     @ResponseBody
     public Object getGameDetai(@PathVariable(name = "id") Integer id){
@@ -66,11 +68,11 @@ public class ApiIndexController {
 
 
     //获取小程序首页轮播图
-    @PostMapping("/getCarousel")
+    @PostMapping("/getCarousel/{appid}")
     @ResponseBody
-    public Object getCarousel(){
-        TbCarousel tbCarousel = new TbCarousel();
-        List<ApiBannerImg> tbCarousels= cmsCarouselService.getBannerImg();
+    public Object getCarousel(@PathVariable(name = "appid") String appid){
+        LOGGER.info("**********获取到的appid={}",appid);
+        List<ApiBannerImg> tbCarousels= cmsCarouselService.getBannerImg(appid);
         return tbCarousels;
     }
 

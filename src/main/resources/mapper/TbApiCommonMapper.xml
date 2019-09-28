@@ -5,13 +5,13 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="serial_number" jdbcType="VARCHAR" property="serialNumber" />
     <result column="applet_name" jdbcType="VARCHAR" property="appletName" />
-    <result column="link_ghid" jdbcType="INTEGER" property="serialNumber" />
+    <result column="link_ghid" jdbcType="INTEGER" property="linkGhid" />
     <result column="logo_img" jdbcType="TIMESTAMP" property="logoImg" />
   </resultMap>
 
   <select id="getAppletByTypeId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     SELECT tb_client_applet.`id`,
-    tb_type_client_applet.`serial_number`,
+    tb_client_applet.`serial_number`,
     tb_client_applet.`applet_name`,
     tb_client_applet.`link_ghid`,
     tb_client_applet.`logo_img`

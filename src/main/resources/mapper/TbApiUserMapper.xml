@@ -107,9 +107,6 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.promote.appletpromote.entity.TbApiUser">
     update tb_api_user
     <set>
-      <if test="nickName != null">
-        nick_name = #{nickName,jdbcType=VARCHAR},
-      </if>
       <if test="wechatNum != null">
         wechat_num = #{wechatNum,jdbcType=VARCHAR},
       </if>
@@ -135,7 +132,7 @@
         referrer_oppen_id = #{referrerOppenId,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where oppen_id = #{oppenId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.promote.appletpromote.entity.TbApiUser">
     update tb_api_user

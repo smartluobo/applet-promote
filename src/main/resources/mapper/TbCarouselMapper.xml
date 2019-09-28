@@ -9,15 +9,25 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="create_user" jdbcType="VARCHAR" property="createUser" />
     <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="appid" jdbcType="VARCHAR" property="appid" />
     <result column="is_del" jdbcType="INTEGER" property="isDel" />
   </resultMap>
 
 
   <resultMap id="BannerResultMap" type="com.promote.appletpromote.entity.ApiBannerImg">
+    <id column="id" jdbcType="INTEGER" property="id" />
     <result column="banner_img" jdbcType="VARCHAR" property="bannerImg" />
+    <result column="applet_appid" jdbcType="VARCHAR" property="appletAppid" />
+    <result column="link_ghid" jdbcType="VARCHAR" property="boxAppid" />
+    <result column="link_address" jdbcType="VARCHAR" property="linkAddress" />
+
+
+    <result column="id" jdbcType="INTEGER" property="id" />
   </resultMap>
+
+
   <sql id="Base_Column_List">
-    id, client_applet_id, own_applet_id, create_time, update_time, create_user, update_user, 
+    id, client_applet_id, own_applet_id, create_time, update_time, create_user, update_user, appid
     is_del
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -28,13 +38,18 @@
   </select>
 
 
-  <select id="getBannerImg" resultMap="BannerResultMap">
-        SELECT
-      tb_client_applet.`banner_img`
-      FROM
-      `tb_carousel`
-      LEFT JOIN `tb_client_applet`
-      ON tb_client_applet.`id` = tb_carousel.`client_applet_id`
+  <select id="getBannerImg" resultMap="BannerResultMap" parameterType="java.lang.String">
+         SELECT
+  tb_client_applet.`banner_img`,
+  tb_client_applet.`applet_appid`,
+  tb_client_applet.`id`,
+    tb_client_applet.`link_ghid`,
+      tb_client_applet.`link_address`
+FROM
+  `tb_carousel`
+  LEFT JOIN `tb_client_applet`
+    ON tb_client_applet.`id` = tb_carousel.`client_applet_id`
+WHERE appid = #{appid,jdbcType=VARCHAR}
   </select>
 
   <select id="selectByParam" parameterType="java.lang.Integer" resultMap="BaseResultMap">

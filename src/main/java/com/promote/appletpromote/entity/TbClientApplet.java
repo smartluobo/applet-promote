@@ -35,6 +35,8 @@ public class TbClientApplet {
 
     private Integer price;
 
+    private String serialNumber;
+
     public Integer getId() {
         return id;
     }
@@ -161,5 +163,13 @@ public class TbClientApplet {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public String getSerialNumber() {
+        return serialNumber;
+    }
+
+    public void setSerialNumber(String serialNumber) {
+        this.serialNumber = serialNumber;
     }
 }

@@ -18,7 +18,7 @@ public interface TbCarouselMapper {
     List<TbCarousel> selectByParam(TbCarousel record);
 
 
-    List<ApiBannerImg> getBannerImg();
+    List<ApiBannerImg> getBannerImg(String appid);
 
     int updateByPrimaryKeySelective(TbCarousel record);
 

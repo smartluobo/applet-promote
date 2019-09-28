@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.promote.appletpromote.mapper.TbAppletConfigMapper">
+  <resultMap id="BaseResultMap" type="com.promote.appletpromote.entity.TbAppletConfig">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="appid" jdbcType="VARCHAR" property="appid" />
+    <result column="mch_id" jdbcType="VARCHAR" property="mchId" />
+    <result column="secret" jdbcType="VARCHAR" property="secret" />
+    <result column="sign_type" jdbcType="VARCHAR" property="signType" />
+    <result column="trade_type" jdbcType="VARCHAR" property="tradeType" />
+    <result column="api_key" jdbcType="VARCHAR" property="apiKey" />
+    <result column="client_ip" jdbcType="VARCHAR" property="clientIp" />
+    <result column="notify_url" jdbcType="VARCHAR" property="notifyUrl" />
+    <result column="login_url" jdbcType="VARCHAR" property="loginUrl" />
+    <result column="create_order_url" jdbcType="VARCHAR" property="createOrderUrl" />
+    <result column="token_url" jdbcType="VARCHAR" property="tokenUrl" />
+    <result column="order_pay_template_id" jdbcType="VARCHAR" property="orderPayTemplateId" />
+    <result column="order_makeComplete_template_id" jdbcType="VARCHAR" property="orderMakecompleteTemplateId" />
+    <result column="order_close_template_id" jdbcType="VARCHAR" property="orderCloseTemplateId" />
+    <result column="send_template_message_url" jdbcType="VARCHAR" property="sendTemplateMessageUrl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, appid, mch_id, secret, sign_type, trade_type, api_key, client_ip, notify_url, 
+    login_url, create_order_url, token_url, order_pay_template_id, order_makeComplete_template_id, 
+    order_close_template_id, send_template_message_url
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_applet_config
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByPrimaryParam"  parameterType="com.promote.appletpromote.entity.TbAppletConfig" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_applet_config
+    <where>
+      <if test="appid != null">
+        appid = #{appid,jdbcType=VARCHAR}
+      </if>
+      <if test="mchId != null">
+        AND mch_id = #{mchId,jdbcType=VARCHAR}
+      </if>
+      <if test="secret != null">
+        AND secret = #{secret,jdbcType=VARCHAR}
+      </if>
+      <if test="signType != null">
+        AND sign_type = #{signType,jdbcType=VARCHAR}
+      </if>
+      <if test="tradeType != null">
+        AND trade_type = #{tradeType,jdbcType=VARCHAR}
+      </if>
+      <if test="apiKey != null">
+        AND api_key = #{apiKey,jdbcType=VARCHAR}
+      </if>
+      <if test="clientIp != null">
+        AND client_ip = #{clientIp,jdbcType=VARCHAR}
+      </if>
+      <if test="notifyUrl != null">
+        AND notify_url = #{notifyUrl,jdbcType=VARCHAR}
+      </if>
+      <if test="loginUrl != null">
+        AND login_url = #{loginUrl,jdbcType=VARCHAR}
+      </if>
+      <if test="createOrderUrl != null">
+        AND create_order_url = #{createOrderUrl,jdbcType=VARCHAR}
+      </if>
+      <if test="tokenUrl != null">
+        AND token_url = #{tokenUrl,jdbcType=VARCHAR}
+      </if>
+      <if test="orderPayTemplateId != null">
+        AND order_pay_template_id = #{orderPayTemplateId,jdbcType=VARCHAR}
+      </if>
+      <if test="orderMakecompleteTemplateId != null">
+        AND order_makeComplete_template_id = #{orderMakecompleteTemplateId,jdbcType=VARCHAR}
+      </if>
+      <if test="orderCloseTemplateId != null">
+        AND order_close_template_id = #{orderCloseTemplateId,jdbcType=VARCHAR}
+      </if>
+      <if test="sendTemplateMessageUrl != null">
+        AND send_template_message_url = #{sendTemplateMessageUrl,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_applet_config
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.promote.appletpromote.entity.TbAppletConfig">
+    insert into tb_applet_config (id, appid, mch_id, 
+      secret, sign_type, trade_type, 
+      api_key, client_ip, notify_url, 
+      login_url, create_order_url, token_url, 
+      order_pay_template_id, order_makeComplete_template_id, 
+      order_close_template_id, send_template_message_url
+      )
+    values (#{id,jdbcType=INTEGER}, #{appid,jdbcType=VARCHAR}, #{mchId,jdbcType=VARCHAR}, 
+      #{secret,jdbcType=VARCHAR}, #{signType,jdbcType=VARCHAR}, #{tradeType,jdbcType=VARCHAR}, 
+      #{apiKey,jdbcType=VARCHAR}, #{clientIp,jdbcType=VARCHAR}, #{notifyUrl,jdbcType=VARCHAR}, 
+      #{loginUrl,jdbcType=VARCHAR}, #{createOrderUrl,jdbcType=VARCHAR}, #{tokenUrl,jdbcType=VARCHAR}, 
+      #{orderPayTemplateId,jdbcType=VARCHAR}, #{orderMakecompleteTemplateId,jdbcType=VARCHAR}, 
+      #{orderCloseTemplateId,jdbcType=VARCHAR}, #{sendTemplateMessageUrl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.promote.appletpromote.entity.TbAppletConfig">
+    insert into tb_applet_config
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="appid != null">
+        appid,
+      </if>
+      <if test="mchId != null">
+        mch_id,
+      </if>
+      <if test="secret != null">
+        secret,
+      </if>
+      <if test="signType != null">
+        sign_type,
+      </if>
+      <if test="tradeType != null">
+        trade_type,
+      </if>
+      <if test="apiKey != null">
+        api_key,
+      </if>
+      <if test="clientIp != null">
+        client_ip,
+      </if>
+      <if test="notifyUrl != null">
+        notify_url,
+      </if>
+      <if test="loginUrl != null">
+        login_url,
+      </if>
+      <if test="createOrderUrl != null">
+        create_order_url,
+      </if>
+      <if test="tokenUrl != null">
+        token_url,
+      </if>
+      <if test="orderPayTemplateId != null">
+        order_pay_template_id,
+      </if>
+      <if test="orderMakecompleteTemplateId != null">
+        order_makeComplete_template_id,
+      </if>
+      <if test="orderCloseTemplateId != null">
+        order_close_template_id,
+      </if>
+      <if test="sendTemplateMessageUrl != null">
+        send_template_message_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="appid != null">
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="mchId != null">
+        #{mchId,jdbcType=VARCHAR},
+      </if>
+      <if test="secret != null">
+        #{secret,jdbcType=VARCHAR},
+      </if>
+      <if test="signType != null">
+        #{signType,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeType != null">
+        #{tradeType,jdbcType=VARCHAR},
+      </if>
+      <if test="apiKey != null">
+        #{apiKey,jdbcType=VARCHAR},
+      </if>
+      <if test="clientIp != null">
+        #{clientIp,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyUrl != null">
+        #{notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="loginUrl != null">
+        #{loginUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createOrderUrl != null">
+        #{createOrderUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="tokenUrl != null">
+        #{tokenUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="orderPayTemplateId != null">
+        #{orderPayTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderMakecompleteTemplateId != null">
+        #{orderMakecompleteTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCloseTemplateId != null">
+        #{orderCloseTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTemplateMessageUrl != null">
+        #{sendTemplateMessageUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.promote.appletpromote.entity.TbAppletConfig">
+    update tb_applet_config
+    <set>
+      <if test="appid != null">
+        appid = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="mchId != null">
+        mch_id = #{mchId,jdbcType=VARCHAR},
+      </if>
+      <if test="secret != null">
+        secret = #{secret,jdbcType=VARCHAR},
+      </if>
+      <if test="signType != null">
+        sign_type = #{signType,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeType != null">
+        trade_type = #{tradeType,jdbcType=VARCHAR},
+      </if>
+      <if test="apiKey != null">
+        api_key = #{apiKey,jdbcType=VARCHAR},
+      </if>
+      <if test="clientIp != null">
+        client_ip = #{clientIp,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyUrl != null">
+        notify_url = #{notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="loginUrl != null">
+        login_url = #{loginUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createOrderUrl != null">
+        create_order_url = #{createOrderUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="tokenUrl != null">
+        token_url = #{tokenUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="orderPayTemplateId != null">
+        order_pay_template_id = #{orderPayTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderMakecompleteTemplateId != null">
+        order_makeComplete_template_id = #{orderMakecompleteTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCloseTemplateId != null">
+        order_close_template_id = #{orderCloseTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTemplateMessageUrl != null">
+        send_template_message_url = #{sendTemplateMessageUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.promote.appletpromote.entity.TbAppletConfig">
+    update tb_applet_config
+    set appid = #{appid,jdbcType=VARCHAR},
+      mch_id = #{mchId,jdbcType=VARCHAR},
+      secret = #{secret,jdbcType=VARCHAR},
+      sign_type = #{signType,jdbcType=VARCHAR},
+      trade_type = #{tradeType,jdbcType=VARCHAR},
+      api_key = #{apiKey,jdbcType=VARCHAR},
+      client_ip = #{clientIp,jdbcType=VARCHAR},
+      notify_url = #{notifyUrl,jdbcType=VARCHAR},
+      login_url = #{loginUrl,jdbcType=VARCHAR},
+      create_order_url = #{createOrderUrl,jdbcType=VARCHAR},
+      token_url = #{tokenUrl,jdbcType=VARCHAR},
+      order_pay_template_id = #{orderPayTemplateId,jdbcType=VARCHAR},
+      order_makeComplete_template_id = #{orderMakecompleteTemplateId,jdbcType=VARCHAR},
+      order_close_template_id = #{orderCloseTemplateId,jdbcType=VARCHAR},
+      send_template_message_url = #{sendTemplateMessageUrl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

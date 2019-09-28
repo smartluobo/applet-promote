@@ -25,10 +25,10 @@ mybatis:
 
 wechat:
   info:
-    appId: wx4123b4481a5e6e66
+    appId: wxfb04c9c9b118062a
     mchId: 1540685681
     signType: MD5
-    secret: bf861f60fbc30bf11ad07a73b4fbcf98
+    secret: 1b8c1cb43fdd75a07e5aef5dd6f72012
     tradeType: JSAPI
     apiKey: eecup2019outlookcom1234567891234
     clientIp: 114.119.117.159

@@ -44,8 +44,8 @@ public class CmsCarouselServiceImpl implements CmsCarouselService {
     }
 
     @Override
-    public List<ApiBannerImg> getBannerImg() {
-        return tbCarouselMapper.getBannerImg();
+    public List<ApiBannerImg> getBannerImg(String appid) {
+        return tbCarouselMapper.getBannerImg(appid);
     }
 
     @Override
