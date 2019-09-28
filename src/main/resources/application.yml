@@ -22,6 +22,7 @@ server:
     context-path: /applet-promote
 mybatis:
   mapper-locations: classpath*:mapper/**/*.xml
+
 wechat:
   info:
     appId: wx4123b4481a5e6e66
