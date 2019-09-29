@@ -28,6 +28,9 @@ public class TbOwnApplet {
     private String appkey;
 
 
+    private Integer pointNumber;
+
+
     public String getAppkey() {
         return appkey;
     }

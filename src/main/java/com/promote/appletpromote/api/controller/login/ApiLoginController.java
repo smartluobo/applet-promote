@@ -37,7 +37,7 @@ public class ApiLoginController {
                 return ResultInfo.newEmptyResultInfo();
             }
             code = codeParam.get("code");
-            appid = codeParam.get("appid");
+            appid = codeParam.get("appId");
             if (StringUtils.isEmpty(code)&&StringUtils.isEmpty(appid)){
                 return ResultInfo.newEmptyResultInfo();
             }
@@ -48,6 +48,7 @@ public class ApiLoginController {
                // apiUserService.saveApiUser(oppenId);
                 TbApiUser tbApiUser = new TbApiUser();
                 tbApiUser.setOppenId(oppenId);
+                tbApiUser.setAppid(appid);
                 LOGGER.error("login add the openid of users {}",tbApiUser.toString());
                 cmsApiUserService.insert(tbApiUser);
             }

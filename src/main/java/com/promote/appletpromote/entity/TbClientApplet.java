@@ -35,7 +35,22 @@ public class TbClientApplet {
 
     private Integer price;
 
-    private String serialNumber;
+    private Integer serialNumber;
+
+    private Integer pointNumber;
+
+
+    public void setSerialNumber(Integer serialNumber) {
+        this.serialNumber = serialNumber;
+    }
+
+    public Integer getPointNumber() {
+        return pointNumber;
+    }
+
+    public void setPointNumber(Integer pointNumber) {
+        this.pointNumber = pointNumber;
+    }
 
     public Integer getId() {
         return id;
@@ -165,11 +180,28 @@ public class TbClientApplet {
         this.price = price;
     }
 
-    public String getSerialNumber() {
-        return serialNumber;
-    }
 
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
+    @Override
+    public String toString() {
+        return "TbClientApplet{" +
+                "id=" + id +
+                ", linkGhid='" + linkGhid + '\'' +
+                ", appletName='" + appletName + '\'' +
+                ", description='" + description + '\'' +
+                ", bottomName='" + bottomName + '\'' +
+                ", appletAppid='" + appletAppid + '\'' +
+                ", linkAddress='" + linkAddress + '\'' +
+                ", isDisplay=" + isDisplay +
+                ", logoImg='" + logoImg + '\'' +
+                ", bannerImg='" + bannerImg + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", createUser='" + createUser + '\'' +
+                ", updateUser='" + updateUser + '\'' +
+                ", isDel=" + isDel +
+                ", price=" + price +
+                ", serialNumber=" + serialNumber +
+                ", pointNumber=" + pointNumber +
+                '}';
     }
 }

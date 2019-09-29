@@ -12,10 +12,13 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="user_head_image" jdbcType="VARCHAR" property="userHeadImage" />
     <result column="referrer_oppen_id" jdbcType="VARCHAR" property="referrerOppenId" />
+    <result column="appid" jdbcType="VARCHAR" property="appid" />
+
+
   </resultMap>
   <sql id="Base_Column_List">
     id, nick_name, wechat_num, oppen_id, wechat_phone_num, user_bind_phone_num, create_time, 
-    update_time, user_head_image, referrer_oppen_id
+    update_time, user_head_image, referrer_oppen_id,appid
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -31,11 +34,11 @@
     insert into tb_api_user (id, nick_name, wechat_num, 
       oppen_id, wechat_phone_num, user_bind_phone_num, 
       create_time, update_time, user_head_image, 
-      referrer_oppen_id)
+      referrer_oppen_id,appid)
     values (#{id,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, #{wechatNum,jdbcType=VARCHAR}, 
       #{oppenId,jdbcType=VARCHAR}, #{wechatPhoneNum,jdbcType=VARCHAR}, #{userBindPhoneNum,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{userHeadImage,jdbcType=VARCHAR}, 
-      #{referrerOppenId,jdbcType=VARCHAR})
+      #{referrerOppenId,jdbcType=VARCHAR},#{appid,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.promote.appletpromote.entity.TbApiUser">
     insert into tb_api_user
@@ -70,6 +73,9 @@
       <if test="referrerOppenId != null">
         referrer_oppen_id,
       </if>
+      <if test="appid != null">
+        appid,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -102,6 +108,9 @@
       <if test="referrerOppenId != null">
         #{referrerOppenId,jdbcType=VARCHAR},
       </if>
+      <if test="appid != null">
+        #{appid,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.promote.appletpromote.entity.TbApiUser">
@@ -131,6 +140,9 @@
       <if test="referrerOppenId != null">
         referrer_oppen_id = #{referrerOppenId,jdbcType=VARCHAR},
       </if>
+      <if test="appid != null">
+        appid = #{appid,jdbcType=VARCHAR},
+      </if>
     </set>
     where oppen_id = #{oppenId,jdbcType=INTEGER}
   </update>
@@ -145,6 +157,7 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       user_head_image = #{userHeadImage,jdbcType=VARCHAR},
       referrer_oppen_id = #{referrerOppenId,jdbcType=VARCHAR}
+       appid = #{appid,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -23,6 +23,16 @@ public class TbApiUser {
 
     private String referrerOppenId;
 
+    private String appid;
+
+    public String getAppid() {
+        return appid;
+    }
+
+    public void setAppid(String appid) {
+        this.appid = appid;
+    }
+
     public Integer getId() {
         return id;
     }

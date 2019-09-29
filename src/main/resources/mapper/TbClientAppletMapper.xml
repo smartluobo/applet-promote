@@ -19,6 +19,9 @@
     <result column="is_del" jdbcType="INTEGER" property="isDel" />
     <result column="price" jdbcType="INTEGER" property="price" />
     <result column="serial_number" jdbcType="INTEGER" property="serialNumber" />
+    <result column="point_number" jdbcType="INTEGER" property="pointNumber" />
+
+
 
 
 
@@ -35,12 +38,13 @@
     <result column="link_address" jdbcType="VARCHAR" property="linkAddress" />
     <result column="logo_img" jdbcType="VARCHAR" property="logoImg" />
     <result column="serial_number" jdbcType="INTEGER" property="serialNumber" />
+    <result column="point_number" jdbcType="INTEGER" property="pointNumber" />
   </resultMap>
 
   <sql id="Base_Column_List">
     id, link_ghid, applet_name, description, bottom_name, applet_appid, link_address, 
     is_display, logo_img, banner_img, create_time, update_time, create_user, update_user, 
-    is_del, price,serial_number
+    is_del, price,serial_number,point_number
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 

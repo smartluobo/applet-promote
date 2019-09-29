@@ -32,6 +32,7 @@ public class ApiUserController {
             return ResultInfo.newEmptyParamsResultInfo();
         }
         String openId = params.get("openId");
+        String appId = params.get("appId");
         String nickName = params.get("nickName");
         String userHeadImage = params.get("userHeadImage");
         LOGGER.info("reportApiUserInfo current user openId : {}, nickName: {},userHeadImage : {}",openId,nickName,userHeadImage);
@@ -43,6 +44,7 @@ public class ApiUserController {
             tbApiUser.setOppenId(openId);
             tbApiUser.setNickName(nickName);
             tbApiUser.setUserHeadImage(userHeadImage);
+            tbApiUser.setAppid(appId);
             cmsApiUserService.updateByPrimaryKeySelective(tbApiUser);
             return resultInfo;
         }catch (Exception e){

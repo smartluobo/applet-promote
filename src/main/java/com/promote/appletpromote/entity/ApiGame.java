@@ -16,13 +16,15 @@ public class ApiGame {
 
     private String appletAppid;
 
-    private String serialNumber;
+    private Integer serialNumber;
 
-    public String getSerialNumber() {
+    private Integer pointNumber;
+
+    public Integer getSerialNumber() {
         return serialNumber;
     }
 
-    public void setSerialNumber(String serialNumber) {
+    public void setSerialNumber(Integer serialNumber) {
         this.serialNumber = serialNumber;
     }
 

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/apiIndex")
@@ -59,18 +60,21 @@ public class ApiIndexController {
 
 
     //获取盒子详情
-    @PostMapping("/getGameDetai/{id}")
+    @PostMapping("/getGameDetail")
     @ResponseBody
-    public Object getGameDetai(@PathVariable(name = "id") Integer id){
+    public Object getGameDetai(@RequestBody Map<String,String> codeParam){
+        Integer id = Integer.valueOf(codeParam.get("id"));
+        LOGGER.info("**********获取到的id={}",id);
         ApiGame apiGame = cmsClientAppletService.selectById(id);
         return apiGame;
     }
 
 
     //获取小程序首页轮播图
-    @PostMapping("/getCarousel/{appid}")
+    @PostMapping("/getCarousel")
     @ResponseBody
-    public Object getCarousel(@PathVariable(name = "appid") String appid){
+    public Object getCarousel(@RequestBody Map<String,String> codeParam){
+        String appid = codeParam.get("appid");
         LOGGER.info("**********获取到的appid={}",appid);
         List<ApiBannerImg> tbCarousels= cmsCarouselService.getBannerImg(appid);
         return tbCarousels;

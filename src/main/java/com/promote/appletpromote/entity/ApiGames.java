@@ -12,6 +12,25 @@ public class ApiGames {
 
     private String logoImg;
 
+    private String description;
+
+    private Integer pointNumber;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getPointNumber() {
+        return pointNumber;
+    }
+
+    public void setPointNumber(Integer pointNumber) {
+        this.pointNumber = pointNumber;
+    }
 
     public Integer getId() {
         return id;
@@ -53,7 +72,6 @@ public class ApiGames {
         this.logoImg = logoImg;
     }
 
-
     @Override
     public String toString() {
         return "ApiGames{" +
@@ -62,6 +80,8 @@ public class ApiGames {
                 ", appletName='" + appletName + '\'' +
                 ", linkGhid='" + linkGhid + '\'' +
                 ", logoImg='" + logoImg + '\'' +
+                ", description='" + description + '\'' +
+                ", pointNumber=" + pointNumber +
                 '}';
     }
 }

@@ -6,7 +6,11 @@
     <result column="serial_number" jdbcType="VARCHAR" property="serialNumber" />
     <result column="applet_name" jdbcType="VARCHAR" property="appletName" />
     <result column="link_ghid" jdbcType="INTEGER" property="linkGhid" />
-    <result column="logo_img" jdbcType="TIMESTAMP" property="logoImg" />
+    <result column="logo_img" jdbcType="VARCHAR" property="logoImg" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="point_number" jdbcType="INTEGER" property="pointNumber" />
+
+
   </resultMap>
 
   <select id="getAppletByTypeId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -14,7 +18,9 @@
     tb_client_applet.`serial_number`,
     tb_client_applet.`applet_name`,
     tb_client_applet.`link_ghid`,
-    tb_client_applet.`logo_img`
+    tb_client_applet.`logo_img`,
+    tb_client_applet.`description`,
+    tb_client_applet.`point_number`
     FROM
     tb_client_applet
     LEFT JOIN `tb_type_client_applet`
