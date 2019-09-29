@@ -10,6 +10,9 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="create_user" jdbcType="VARCHAR" property="createUser" />
     <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="online_show" jdbcType="INTEGER" property="onlineShow" />
+
+
   </resultMap>
 
 
@@ -18,6 +21,7 @@
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="logo_url" jdbcType="VARCHAR" property="logoUrl" />
     <result column="serial_number" jdbcType="INTEGER" property="serialNumber" />
+    <result column="online_show" jdbcType="INTEGER" property="onlineShow" />
   </resultMap>
 
 
@@ -62,7 +66,7 @@
 
   <select id="getTpyes" parameterType="com.promote.appletpromote.entity.TbTypes" resultMap="TypeResultMap">
     select
-    tb_types.id,tb_types.`title`,tb_types.`logo_url`,tb_types.`serial_number`
+    tb_types.id,tb_types.`title`,tb_types.`logo_url`,tb_types.`serial_number`,`online_show`
     from tb_types
     <where>
       <if test="title != null">

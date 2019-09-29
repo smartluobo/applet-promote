@@ -95,7 +95,7 @@ public class ApiIndexController {
         //当客户点击游戏确定按钮，则查询表该用户今天是否已经记录了，如果已经存在则不在插入记录，否则添加该记录
             TbUvClick tbUvClick = new TbUvClick();
             tbUvClick.setCreateTime(new Date());
-            tbUvClick.setOpenid(apiSaveUvPv.getOppenid());
+            tbUvClick.setOpenid(apiSaveUvPv.getOpenId());
             tbUvClick.setAppid(apiSaveUvPv.getClientAppletId());
             List<TbUvClick> tbUvClickList = cmsUvClickService.selectByPrimaryParm(tbUvClick);
             if(tbUvClickList.size()==0){
@@ -106,7 +106,7 @@ public class ApiIndexController {
         }else{
             //
             TbPvClick tbPvClick = new TbPvClick();
-            tbPvClick.setAppid(apiSaveUvPv.getOppenid());
+            tbPvClick.setAppid(apiSaveUvPv.getOpenId());
             tbPvClick.setCreateTime(new Date());
             tbPvClick.setOwnAppletId(apiSaveUvPv.getOwnAppletId());
             tbPvClick.setClientAppletId(apiSaveUvPv.getClientAppletId());

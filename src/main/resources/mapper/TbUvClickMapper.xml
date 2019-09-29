@@ -51,10 +51,10 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.promote.appletpromote.entity.TbUvClick">
-    insert into tb_uv_click (id, openid, ghid, 
+    insert into tb_uv_click ( openid, ghid,
       create_time, update_time, own_applet_id, 
       appid)
-    values (#{id,jdbcType=INTEGER}, #{openid,jdbcType=VARCHAR}, #{ghid,jdbcType=VARCHAR}, 
+    values (#{openid,jdbcType=VARCHAR}, #{ghid,jdbcType=VARCHAR},
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{ownAppletId,jdbcType=VARCHAR}, 
       #{appid,jdbcType=VARCHAR})
   </insert>

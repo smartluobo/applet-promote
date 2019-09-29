@@ -19,6 +19,16 @@ public class TbTypes {
 
     private String updateUser;
 
+    private Integer onlineShow;
+
+    public Integer getOnlineShow() {
+        return onlineShow;
+    }
+
+    public void setOnlineShow(Integer onlineShow) {
+        this.onlineShow = onlineShow;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -81,5 +91,21 @@ public class TbTypes {
 
     public void setUpdateUser(String updateUser) {
         this.updateUser = updateUser == null ? null : updateUser.trim();
+    }
+
+
+    @Override
+    public String toString() {
+        return "TbTypes{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", logoUrl='" + logoUrl + '\'' +
+                ", serialNumber=" + serialNumber +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", createUser='" + createUser + '\'' +
+                ", updateUser='" + updateUser + '\'' +
+                ", onlineShow='" + onlineShow + '\'' +
+                '}';
     }
 }

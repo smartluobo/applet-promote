@@ -4,7 +4,7 @@ public class ApiSaveUvPv {
 
     private String status;
 
-    private String oppenid;
+    private String openId;
 
     private String ownAppletId;
 
@@ -19,12 +19,12 @@ public class ApiSaveUvPv {
         this.status = status;
     }
 
-    public String getOppenid() {
-        return oppenid;
+    public String getOpenId() {
+        return openId;
     }
 
-    public void setOppenid(String oppenid) {
-        this.oppenid = oppenid;
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 
     public String getOwnAppletId() {
@@ -47,7 +47,7 @@ public class ApiSaveUvPv {
     public String toString() {
         return "ApiSaveUvPv{" +
                 "status='" + status + '\'' +
-                ", oppenid='" + oppenid + '\'' +
+                ", openId='" + openId + '\'' +
                 ", ownAppletId='" + ownAppletId + '\'' +
                 ", clientAppletId='" + clientAppletId + '\'' +
                 '}';

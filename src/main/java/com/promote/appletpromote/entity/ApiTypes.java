@@ -12,6 +12,16 @@ public class ApiTypes {
 
     private String serialNumber;
 
+    private Integer onlineShow;
+
+
+    public Integer getOnlineShow() {
+        return onlineShow;
+    }
+
+    public void setOnlineShow(Integer onlineShow) {
+        this.onlineShow = onlineShow;
+    }
 
     private List<ApiGames> ApiGameList;
 
@@ -63,6 +73,8 @@ public class ApiTypes {
                 ", title='" + title + '\'' +
                 ", logoUrl='" + logoUrl + '\'' +
                 ", serialNumber='" + serialNumber + '\'' +
+                ", onlineShow=" + onlineShow +
+                ", ApiGameList=" + ApiGameList +
                 '}';
     }
 }
