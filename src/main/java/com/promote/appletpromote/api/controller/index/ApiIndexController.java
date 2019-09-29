@@ -6,6 +6,7 @@ import com.promote.appletpromote.entity.*;
 import com.promote.appletpromote.response.ResultInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -42,6 +43,10 @@ public class ApiIndexController {
     @Resource
     private CmsCarouselService cmsCarouselService;
 
+    @Resource
+    private CmsBackgroundService cmsBackgroundService;
+
+
 
     //获取小程序的游戏列表
     @PostMapping("/getGameList")
@@ -74,7 +79,7 @@ public class ApiIndexController {
     @PostMapping("/getCarousel")
     @ResponseBody
     public Object getCarousel(@RequestBody Map<String,String> codeParam){
-        String appid = codeParam.get("appid");
+        String appid = codeParam.get("appId");
         LOGGER.info("**********获取到的appid={}",appid);
         List<ApiBannerImg> tbCarousels= cmsCarouselService.getBannerImg(appid);
         return tbCarousels;
@@ -132,6 +137,41 @@ public class ApiIndexController {
     }
 
 
+    @PostMapping("/getBackground")
+    public Object getBackground(@RequestBody Map<String,String> codeParam){
+        String appId = codeParam.get("appId");
+        TbBackground tbBackground = new TbBackground();
+        tbBackground.setAppid(appId);
+        tbBackground = cmsBackgroundService.selectByPrimaryParam(tbBackground);
+        return tbBackground;
+    }
+
+
+    @PostMapping("/getBackgroundImg")
+    public String getBackgroundImg(@RequestBody Map<String,String> codeParam){
+        String appId = codeParam.get("appId");
+        if(StringUtils.isEmpty(appId)){
+            appId = "admin";
+        }
+        TbBackground tbBackground = new TbBackground();
+        tbBackground.setAppid(appId);
+        tbBackground = cmsBackgroundService.selectByPrimaryParam(tbBackground);
+        return tbBackground.getBackground();
+    }
+
+
+    @PostMapping("/getButtom")
+    public String getButtom(@RequestBody Map<String,String> codeParam){
+        String appId = codeParam.get("appId");
+        if(StringUtils.isEmpty(appId)){
+            appId = "admin";
+        }
+        TbBackground tbBackground = new TbBackground();
+        tbBackground.setAppid(appId);
+        tbBackground = cmsBackgroundService.selectByPrimaryParam(tbBackground);
+        LOGGER.error("getButtom add happen exception",tbBackground);
+        return tbBackground.getButtom();
+    }
 
 
 }

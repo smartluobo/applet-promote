@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.promote.appletpromote.mapper.TbBackgroundMapper">
+  <resultMap id="BaseResultMap" type="com.promote.appletpromote.entity.TbBackground">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="background" jdbcType="VARCHAR" property="background" />
+    <result column="buttom" jdbcType="VARCHAR" property="buttom" />
+    <result column="image1" jdbcType="VARCHAR" property="image1" />
+    <result column="image2" jdbcType="VARCHAR" property="image2" />
+    <result column="image3" jdbcType="VARCHAR" property="image3" />
+    <result column="appid" jdbcType="VARCHAR" property="appid" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, background, buttom, image1, image2, image3, appid, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_background
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByPrimaryParam" parameterType="com.promote.appletpromote.entity.TbBackground" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_background
+    <where>
+      <if test="background != null">
+         background = #{background,jdbcType=VARCHAR}
+      </if>
+      <if test="buttom != null">
+        AND buttom = #{buttom,jdbcType=VARCHAR}
+      </if>
+      <if test="image1 != null">
+        AND image1 = #{image1,jdbcType=VARCHAR}
+      </if>
+      <if test="image2 != null">
+        AND image2 = #{image2,jdbcType=VARCHAR}
+      </if>
+      <if test="image3 != null">
+        AND image3 = #{image3,jdbcType=VARCHAR}
+      </if>
+      <if test="appid != null">
+        AND appid = #{appid,jdbcType=VARCHAR}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime,jdbcType=TIMESTAMP}
+      </if>
+    </where>
+      </select>
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_background
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.promote.appletpromote.entity.TbBackground">
+    insert into tb_background (id, background, buttom, 
+      image1, image2, image3, 
+      appid, create_time)
+    values (#{id,jdbcType=INTEGER}, #{background,jdbcType=VARCHAR}, #{buttom,jdbcType=VARCHAR}, 
+      #{image1,jdbcType=VARCHAR}, #{image2,jdbcType=VARCHAR}, #{image3,jdbcType=VARCHAR}, 
+      #{appid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.promote.appletpromote.entity.TbBackground">
+    insert into tb_background
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="background != null">
+        background,
+      </if>
+      <if test="buttom != null">
+        buttom,
+      </if>
+      <if test="image1 != null">
+        image1,
+      </if>
+      <if test="image2 != null">
+        image2,
+      </if>
+      <if test="image3 != null">
+        image3,
+      </if>
+      <if test="appid != null">
+        appid,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="background != null">
+        #{background,jdbcType=VARCHAR},
+      </if>
+      <if test="buttom != null">
+        #{buttom,jdbcType=VARCHAR},
+      </if>
+      <if test="image1 != null">
+        #{image1,jdbcType=VARCHAR},
+      </if>
+      <if test="image2 != null">
+        #{image2,jdbcType=VARCHAR},
+      </if>
+      <if test="image3 != null">
+        #{image3,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.promote.appletpromote.entity.TbBackground">
+    update tb_background
+    <set>
+      <if test="background != null">
+        background = #{background,jdbcType=VARCHAR},
+      </if>
+      <if test="buttom != null">
+        buttom = #{buttom,jdbcType=VARCHAR},
+      </if>
+      <if test="image1 != null">
+        image1 = #{image1,jdbcType=VARCHAR},
+      </if>
+      <if test="image2 != null">
+        image2 = #{image2,jdbcType=VARCHAR},
+      </if>
+      <if test="image3 != null">
+        image3 = #{image3,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        appid = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.promote.appletpromote.entity.TbBackground">
+    update tb_background
+    set background = #{background,jdbcType=VARCHAR},
+      buttom = #{buttom,jdbcType=VARCHAR},
+      image1 = #{image1,jdbcType=VARCHAR},
+      image2 = #{image2,jdbcType=VARCHAR},
+      image3 = #{image3,jdbcType=VARCHAR},
+      appid = #{appid,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
