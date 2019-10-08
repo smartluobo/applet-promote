@@ -33,6 +33,16 @@ public class TbAppletConfig {
 
     private String sendTemplateMessageUrl;
 
+    private Integer isFraud;
+
+    public Integer getIsFraud() {
+        return isFraud;
+    }
+
+    public void setIsFraud(Integer isFraud) {
+        this.isFraud = isFraud;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -157,7 +167,32 @@ public class TbAppletConfig {
         return sendTemplateMessageUrl;
     }
 
+    @Override
+    public String toString() {
+        return "TbAppletConfig{" +
+                "id=" + id +
+                ", appid='" + appid + '\'' +
+                ", mchId='" + mchId + '\'' +
+                ", secret='" + secret + '\'' +
+                ", signType='" + signType + '\'' +
+                ", tradeType='" + tradeType + '\'' +
+                ", apiKey='" + apiKey + '\'' +
+                ", clientIp='" + clientIp + '\'' +
+                ", notifyUrl='" + notifyUrl + '\'' +
+                ", loginUrl='" + loginUrl + '\'' +
+                ", createOrderUrl='" + createOrderUrl + '\'' +
+                ", tokenUrl='" + tokenUrl + '\'' +
+                ", orderPayTemplateId='" + orderPayTemplateId + '\'' +
+                ", orderMakecompleteTemplateId='" + orderMakecompleteTemplateId + '\'' +
+                ", orderCloseTemplateId='" + orderCloseTemplateId + '\'' +
+                ", sendTemplateMessageUrl='" + sendTemplateMessageUrl + '\'' +
+                ", isFraud=" + isFraud +
+                '}';
+    }
+
     public void setSendTemplateMessageUrl(String sendTemplateMessageUrl) {
         this.sendTemplateMessageUrl = sendTemplateMessageUrl == null ? null : sendTemplateMessageUrl.trim();
+
+
     }
 }

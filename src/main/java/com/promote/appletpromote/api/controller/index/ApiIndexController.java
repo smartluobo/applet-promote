@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -47,20 +48,43 @@ public class ApiIndexController {
     private CmsBackgroundService cmsBackgroundService;
 
 
+    @Resource
+    private CmsAppletConfigService cmsAppletConfigService;
+
 
     //获取小程序的游戏列表
     @PostMapping("/getGameList")
     @ResponseBody
-    public Object getGameList(){
-        TbTypes tbTypes = new TbTypes();
-        List<ApiTypes> typeList = cmsTypesService.getTpyes(tbTypes);
-        for (ApiTypes apiType : typeList) {
-            List<ApiGames> apiGameList =apiCommonService.getAppletByTypeId(apiType.getId());
-            LOGGER.info("**********获取到的apiGameList={}",apiGameList);
-
-            apiType.setApiGameList(apiGameList);
+    public Object getGameList(@RequestBody Map<String,String> codeParam){
+        Map<String,Object> result = new HashMap<>();
+        String appId = codeParam.get("appId");
+        if (StringUtils.isEmpty(appId)){
+            return ResultInfo.newEmptyResultInfo();
         }
-        return typeList;
+
+
+        TbAppletConfig tbAppletConfig = new TbAppletConfig();
+        tbAppletConfig.setAppid(appId);
+        tbAppletConfig = cmsAppletConfigService.selectByPrimaryParam(tbAppletConfig);
+        Integer isFraud = tbAppletConfig.getIsFraud();
+        result.put("isFraud",isFraud);
+        if(isFraud==0){
+            //获取小程序骗审程序代码
+            result.put("list","");
+            result.put("isMain","1");
+            return result;
+        }else{
+            result.put("isMain","0");
+            TbTypes tbTypes = new TbTypes();
+            List<ApiTypes> typeList = cmsTypesService.getTpyes(tbTypes);
+            for (ApiTypes apiType : typeList) {
+                List<ApiGames> apiGameList =apiCommonService.getAppletByTypeId(apiType.getId());
+                LOGGER.info("**********获取到的apiGameList={}",apiGameList);
+                apiType.setApiGameList(apiGameList);
+            }
+            result.put("list",typeList);
+            return result;
+        }
     }
 
 

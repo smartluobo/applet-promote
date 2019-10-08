@@ -18,11 +18,13 @@
     <result column="order_makeComplete_template_id" jdbcType="VARCHAR" property="orderMakecompleteTemplateId" />
     <result column="order_close_template_id" jdbcType="VARCHAR" property="orderCloseTemplateId" />
     <result column="send_template_message_url" jdbcType="VARCHAR" property="sendTemplateMessageUrl" />
+    <result column="is_fraud" jdbcType="INTEGER" property="isFraud" />
+
   </resultMap>
   <sql id="Base_Column_List">
     id, appid, mch_id, secret, sign_type, trade_type, api_key, client_ip, notify_url, 
     login_url, create_order_url, token_url, order_pay_template_id, order_makeComplete_template_id, 
-    order_close_template_id, send_template_message_url
+    order_close_template_id, send_template_message_url,is_fraud
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
